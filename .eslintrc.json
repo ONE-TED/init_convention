@@ -6,12 +6,10 @@
     "extends": [
       "eslint:recommended",
       "plugin:react/recommended",
-      "plugin:jsx-a11y/recommended",
-      "plugin:import/errors",
-      "plugin:import/warnings",
-      "plugin:react-hooks/recommended"
+      "plugin:prettier/recommended",
+      "plugin:@typescript-eslint/recommended"
     ],
-    "parser": "babel-eslint",
+    "parser": "@typescript-eslint/parser",
     "parserOptions": {
       "ecmaFeatures": {
         "jsx": true
@@ -19,22 +17,29 @@
       "ecmaVersion": 12,
       "sourceType": "module"
     },
-    "plugins": ["react"],
+    "plugins": ["react","prettier","@typescript-eslint"],
     "rules": {
       "import/extensions": "off",
       "no-use-before-define": "off",
-      "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }]
+      "react/jsx-filename-extension": ["error", { "extensions": [".tsx", ".jsx"] }],
+      "no-unused-vars":"warn",
+      "prettier/prettier": [
+        "error",
+        {
+            "endOfLine": "auto"
+        }
+      ],
+      "@typescript-eslint/explicit-function-return-type": "off",
+      "@typescript-eslint/explicit-module-boundary-types": "off"
     },
     "settings": {
-      "react": {
-        "version": "detect"
-      },
       "import/resolver": {
         "node": {
           "paths": ["src"],
-          "extensions": [".js", ".jsx"]
+          "extensions": [".js", ".jsx",".ts",".tsx"]
         }
       }
     }
   }
+
   
